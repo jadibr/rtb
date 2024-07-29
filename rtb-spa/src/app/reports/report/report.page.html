@@ -1,0 +1,11 @@
+@if (infoMessage != undefined) {
+  <h1>{{ infoMessage }}</h1>
+} @else {
+  <h1>User events report</h1>
+  <div class="report-grid">
+    <div class="report-grid__item report-grid__item--header">No. of users who accessed the initial page</div>
+    <div class="report-grid__item report-grid__item--data">{{ userEventReportData?.homePageLoadUsersCount }}</div>
+    <div class="report-grid__item report-grid__item--header">Percentage of users who scrolled to the image</div>
+    <div class="report-grid__item report-grid__item--data">{{ this.percentageWhoScrolled }}%</div>
+  </div>
+}

@@ -1,0 +1,22 @@
+
+@if (infoMessage != undefined) {
+  <h1>{{ infoMessage }}</h1>
+} @else {
+  <h1>
+    {{ isNewUser ? "Hello new user" : "Welcome back user"}} #{{ randomUser?.id }}
+  </h1>
+
+  @for (paragraph of paragrapsAndLinesLenghts; track $index) {
+    <h2>Paragraph {{$index + 1}}<br/></h2>
+    <p>
+      @for (line of [].constructor(paragraph); track $index) {
+        <ng-container>{{ padLineNumber(($index + 1).toString()) }}. {{ loremLine }}<br/></ng-container>
+      }
+    </p>
+    @if ($index == 9) {
+      <p>
+        <img visible (isVisible)="imageVisible()" [src]="randomUser?.avatar" alt="user avatar">
+      </p>
+    }
+  }
+}
